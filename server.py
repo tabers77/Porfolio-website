@@ -8,16 +8,17 @@ app = Flask(__name__)
 def start():
 	return render_template ('index.html') 
 
-	@app.route('/<string:page_name>') 
+@app.route('/<string:page_name>') 
 	def hmtl_page(page_name):
 		return render_template (page_name) 
 
-		def write_to_file(data):
-			with open('database.txt','a') as database: 
-				email= data['email']
-				subject= data['subject']
-		message= data['message'] #here I am extracting from a dictionary
+	def write_to_file(data):
+		with open('database.txt','a') as database: 
+			email= data['email']
+			subject= data['subject']
+			message= data['message'] 
 		file = database.write(f'\n{email},{subject},{message}')
+	
 
 # def write_to_csv(data):
 # 	file_exists = os.path.isfile("./database2.csv",)
@@ -46,7 +47,6 @@ def write_to_csv(data):
 				writer.writerow(data)
 			except OSError as err:
 				print(f'something went wrong: {err}') 
-
 
 
 
